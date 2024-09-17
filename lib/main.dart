@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste_dev_mobile_cientec/features/views/pages/home_page.dart';
 import 'package:teste_dev_mobile_cientec/res/app_colors.dart';
 import 'package:teste_dev_mobile_cientec/res/app_dimens.dart';
 import 'package:teste_dev_mobile_cientec/res/themedata_light.dart';
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Teste Dev Mobile',
       theme: themeData,
-      home: const Placeholder(),
+      routes: {
+        '/': (context) => const HomePage(),
+      },
     );
   }
 }
