@@ -53,6 +53,30 @@ final themeData = ThemeData(
       color: AppColors.onSurfaceVariant,
     ),
   ),
+  iconTheme: const IconThemeData(
+    color: AppColors.onSurface,
+    size: AppDimens.iconLarge,
+  ),
+  iconButtonTheme: IconButtonThemeData(
+    style: IconButton.styleFrom(
+      iconSize: AppDimens.iconLarge,
+    ),
+  ),
+  scaffoldBackgroundColor: AppColors.surfaceContainer,
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    elevation: 0,
+    backgroundColor: AppColors.surfaceContainerHigh,
+    selectedItemColor: AppColors.primary,
+    unselectedItemColor: AppColors.onSurfaceVariant,
+    selectedLabelStyle: TextStyle(
+      color: AppColors.primary,
+      fontSize: AppDimens.textXSmall,
+    ),
+    unselectedLabelStyle: TextStyle(
+      color: AppColors.onSurfaceVariant,
+      fontSize: AppDimens.textXSmall,
+    ),
+  ),
   appBarTheme: const AppBarTheme(
     backgroundColor: AppColors.primary,
     toolbarHeight: AppDimens.appBarHeight,
@@ -61,7 +85,8 @@ final themeData = ThemeData(
       fontWeight: FontWeight.bold,
       color: AppColors.onPrimary,
     ),
-    iconTheme: IconThemeData(color: AppColors.onPrimary),
+    iconTheme:
+        IconThemeData(color: AppColors.onPrimary, size: AppDimens.iconLarge),
     actionsIconTheme: IconThemeData(color: AppColors.onPrimary),
   ),
   filledButtonTheme: FilledButtonThemeData(
