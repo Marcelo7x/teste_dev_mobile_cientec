@@ -49,6 +49,6 @@ Não permita que o usuário siga o fluxo do aplicativo quando houver campos inv�
     ├─── res
     ├─── main.dart
     ```
-- **Dependências**: SharedPreferences
+- **Dependências**: SharedPreferences, Mokito, BuildRunner
 - **Estilo**: Estilição dos widgets do Material Design no ThemeData
 - **Testes**: Testes unitários
