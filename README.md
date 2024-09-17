@@ -38,13 +38,15 @@ Não permita que o usuário siga o fluxo do aplicativo quando houver campos inv�
 - Estrutura de pastas:
     ```
     lib/
-    ├─── controllers/
-    ├─── core/
-    ├─── models/
-    ├─── repositories/
-    ├─── views/
-        ├── components/
-        ├── pages/
+    ├─── features/
+        ├─── controllers/
+        ├─── core/
+        ├─── models/
+        ├─── repositories/
+        ├─── views/
+            ├── components/
+            ├── pages/
+    ├─── res
     ├─── main.dart
     ```
 - **Dependências**: SharedPreferences
