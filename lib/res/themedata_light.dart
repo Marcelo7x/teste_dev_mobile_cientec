@@ -89,20 +89,63 @@ final themeData = ThemeData(
         IconThemeData(color: AppColors.onPrimary, size: AppDimens.iconLarge),
     actionsIconTheme: IconThemeData(color: AppColors.onPrimary),
   ),
+  inputDecorationTheme: const InputDecorationTheme(
+    floatingLabelStyle: TextStyle(
+      fontSize: AppDimens.textXLarge,
+      fontWeight: FontWeight.w600,
+      color: AppColors.primary,
+    ),
+    floatingLabelBehavior: FloatingLabelBehavior.always,
+    enabledBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.primary,
+        width: 2.0,
+      ),
+    ),
+    contentPadding: EdgeInsets.fromLTRB(0, 8, 0, 4),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.primary,
+        width: 2.0,
+      ),
+    ),
+    border: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.primary,
+        width: 2.0,
+      ),
+    ),
+  ),
+  radioTheme: const RadioThemeData(
+    fillColor: WidgetStatePropertyAll(AppColors.primary),
+    overlayColor: WidgetStatePropertyAll(AppColors.primary),
+  ),
   filledButtonTheme: FilledButtonThemeData(
     style: FilledButton.styleFrom(
       backgroundColor: AppColors.primary,
       textStyle: const TextStyle(
-        fontSize: AppDimens.textMedium,
+        fontSize: AppDimens.textLarge,
+        fontWeight: FontWeight.w600,
         color: AppColors.onPrimary,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppDimens.borderRadiusSmall),
       ),
     ),
   ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       textStyle: const TextStyle(
-        fontSize: AppDimens.textMedium,
+        fontSize: AppDimens.textLarge,
+        fontWeight: FontWeight.w600,
         color: AppColors.primary,
+      ),
+      side: const BorderSide(
+        color: AppColors.primary,
+        width: 2.0,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppDimens.borderRadiusSmall),
       ),
     ),
   ),

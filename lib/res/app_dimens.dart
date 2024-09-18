@@ -20,4 +20,5 @@ class AppDimens {
   static const iconLarge = 35.0;
   static const appBarHeight = 105.0;
   static const bottomNavigationBarHeight = 70.0;
+  static const titleContainerHeight = 40.0;
 }
