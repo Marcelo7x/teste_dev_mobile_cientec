@@ -59,5 +59,6 @@ Aqui será descrito o processo de desenvolvimento do aplicativo.
 ### Observações
 O objetivo foi desenvolver o aplicativo sem o uso de pacotes externos, garantindo um código mais simples, limpo e fácil de manter. A estrutura de pastas foi organizada de forma estratégica para facilitar a manutenção e a escalabilidade do projeto.
 Todos commits foram feitos direto na main pois o projeto é pequeno e não houve necessidade de criar branches.
+Como nenhum pacote de injeção de dependência foi utilizado, os controllers foram instanciados globalmente no main.dart e passados como parâmetros para as páginas, evitando a criação de instâncias desnecessárias. Já os repositories foram instanciados localmente nos controllers.
 Os tamanhos, cores e demais estilos visuais foram definidos com base em ferramentas externas ao Figma, o que limitou a precisão em relação ao layout original.
 Além disso, foi necessário ajustar o posicionamento dos botões para permitir a rolagem adequada da tela em dispositivos no modo horizontal.
