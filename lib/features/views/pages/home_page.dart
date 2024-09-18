@@ -49,12 +49,15 @@ class _HomePageState extends State<HomePage> {
             AppDimens.appBarHeight +
             AppDimens.bottomNavigationBarHeight);
     return Scaffold(
-      appBar: customAppbarComponent(),
-      body: SizedBox(
-        height: height,
-        child: ValueListenableBuilder(
-          valueListenable: _homeController.currentPage,
-          builder: (context, int pageIndex, child) => pages[pageIndex],
+      body: Navigator(
+        onGenerateRoute: (settings) => MaterialPageRoute(
+          builder: (context) => SizedBox(
+            height: height,
+            child: ValueListenableBuilder(
+              valueListenable: _homeController.currentPage,
+              builder: (context, int pageIndex, child) => pages[pageIndex],
+            ),
+          ),
         ),
       ),
       bottomNavigationBar: SizedBox(
