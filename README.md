@@ -52,7 +52,7 @@ Aqui será descrito o processo de desenvolvimento do aplicativo.
     ├─── res
     ├─── main.dart
     ```
-- **Dependências**: nenuma dependência externa
+- **Dependências**: nenhuma dependência externa
 - **Estilo**: Estilição dos widgets do Material Design no ThemeData
 - **Testes**: Testes unitários
 
