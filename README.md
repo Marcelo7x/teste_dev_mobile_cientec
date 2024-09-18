@@ -32,7 +32,10 @@ Não permita que o usuário siga o fluxo do aplicativo quando houver campos inv�
 
 --------------------------------------------------------------------
 
-## Arquitetura do App e Decisões Técnicas
+## Relátorio de Desenvolvimento
+Aqui será descrito o processo de desenvolvimento do aplicativo.
+
+### Arquitetura do App e Decisões Técnicas
 
 - **Arquitetura**: MVC / Repository Pattern
 - Estrutura de pastas:
@@ -49,6 +52,10 @@ Não permita que o usuário siga o fluxo do aplicativo quando houver campos inv�
     ├─── res
     ├─── main.dart
     ```
-- **Dependências**: SharedPreferences, Mokito, BuildRunner
+- **Dependências**: nenuma dependência externa
 - **Estilo**: Estilição dos widgets do Material Design no ThemeData
 - **Testes**: Testes unitários
+
+### Observações
+O objetivo foi desenvolver o aplicativo sem o uso de pacotes externos, garantindo um código mais simples, limpo e fácil de manter. A estrutura de pastas foi organizada de forma estratégica para facilitar a manutenção e a escalabilidade do projeto.
+Os tamanhos, cores e demais estilos visuais foram definidos com base em ferramentas externas ao Figma, o que limitou a precisão em relação ao layout original. Além disso, foi necessário ajustar o posicionamento dos botões para permitir a rolagem adequada da tela em dispositivos no modo horizontal.
