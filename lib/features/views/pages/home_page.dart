@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste_dev_mobile_cientec/features/controllers/home_controller.dart';
-import 'package:teste_dev_mobile_cientec/features/views/pages/cadastro_page.dart';
+import 'package:teste_dev_mobile_cientec/features/views/components/custom_appbar_component.dart';
+import 'package:teste_dev_mobile_cientec/features/views/pages/cadastro_person_page.dart';
 import 'package:teste_dev_mobile_cientec/res/app_dimens.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     // const ProfilePage(),
     // const HomePage(),
     // const MenuPage(),
-    const CadastroPage(),
+    const CadastroPersonPage(),
   ];
 
   @override
@@ -43,19 +44,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.sizeOf(context).height -
+        (MediaQuery.of(context).padding.top +
+            AppDimens.appBarHeight +
+            AppDimens.bottomNavigationBarHeight);
     return Scaffold(
-      appBar: AppBar(
-        /// Nao deve conter nenhuma acao, entao nao usarei o endDrawer
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.menu_rounded),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: ValueListenableBuilder(
-        valueListenable: _homeController.currentPage,
-        builder: (context, int pageIndex, child) => pages[pageIndex],
+      appBar: customAppbarComponent(),
+      body: SizedBox(
+        height: height,
+        child: ValueListenableBuilder(
+          valueListenable: _homeController.currentPage,
+          builder: (context, int pageIndex, child) => pages[pageIndex],
+        ),
       ),
       bottomNavigationBar: SizedBox(
         height: AppDimens.bottomNavigationBarHeight,

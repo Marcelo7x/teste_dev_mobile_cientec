@@ -8,7 +8,7 @@ import 'package:teste_dev_mobile_cientec/features/repository/cadastro_repository
 
 class CadastroController {
   final state = ValueNotifier<AppState>(ReadyState());
-  final CadastroRepository _repository;
+  final _repository = CadastroRepository();
   PersonInterface? _person;
   PersonInterface? get person => _person;
   ServicoEnum? _servico;
@@ -17,7 +17,7 @@ class CadastroController {
   DestinatarioEnum? _destinatario;
   DestinatarioEnum? get destinatario => _destinatario;
 
-  CadastroController(this._repository);
+  CadastroController();
 
   void createPerson(
       {required String name,
@@ -37,13 +37,14 @@ class CadastroController {
 
   void setDestinatario(DestinatarioEnum destinatario) {
     _destinatario = destinatario;
-  }	
+  }
 
   Future<void> encaminhar() async {
     if (_person != null && _servico != null) {
       state.value = LoadingState();
-      final (sucess, error) = await _repository.encaminhar(_person!, _servico!, motivo, _destinatario);
-      
+      final (sucess, error) = await _repository.encaminhar(
+          _person!, _servico!, motivo, _destinatario);
+
       if (sucess) {
         state.value = SucessState();
       } else {

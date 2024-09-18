@@ -80,8 +80,9 @@ class Validator {
 
       value = value?.split('/').reversed.join('-');
 
-      if (DateTime.tryParse(value ?? '') == null) {
-        return message?? 'Data inválida';
+      final date = DateTime.tryParse(value ?? '');
+      if (date == null || date.year < 1890 || date.year > DateTime.now().year) {
+        return message ?? 'Data inválida';
       }
 
       return null;
@@ -96,7 +97,7 @@ class Validator {
       }
 
       if (!RegExp(r'^\(\d{2}\) \d{5}-\d{4}$').hasMatch(value ?? '')) {
-        return message?? 'Telefone inválido';
+        return message ?? 'Telefone inválido';
       }
 
       return null;
