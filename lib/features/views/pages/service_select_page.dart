@@ -31,71 +31,75 @@ class _ServiceSelectPageState extends State<ServiceSelectPage> {
             child: TitleComponent(title: 'Cadastro'),
           ),
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(AppDimens.marginXLarge),
-                      child: Text(
-                        'Selecione o serviço',
-                        style: Theme.of(context).textTheme.headlineLarge,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(AppDimens.marginXLarge),
+                        child: Text(
+                          'Selecione o serviço',
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(AppDimens.marginLarge),
-                      child: Column(
-                        children: ServicoEnum.values
-                            .map((e) => RadioListTile(
-                                  contentPadding: EdgeInsets.zero,
-                                  title: Text(e.value,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium),
-                                  value: e.value,
-                                  groupValue: service,
-                                  controlAffinity:
-                                      ListTileControlAffinity.trailing,
-                                  onChanged: (v) {
-                                    setState(() {
-                                      service = v as String;
-                                    });
-                                  },
-                                ))
-                            .toList(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: AppDimens.marginXLarge),
+                        child: Column(
+                          children: ServicoEnum.values
+                              .map((e) => RadioListTile(
+                                    contentPadding: EdgeInsets.zero,
+                                    title: Text(e.value,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium),
+                                    value: e.value,
+                                    groupValue: service,
+                                    controlAffinity:
+                                        ListTileControlAffinity.trailing,
+                                    onChanged: (v) {
+                                      setState(() {
+                                        service = v as String;
+                                      });
+                                    },
+                                  ))
+                              .toList(),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 70,
-                      margin:
-                          const EdgeInsets.only(bottom: AppDimens.marginXLarge),
-                      width: min(MediaQuery.sizeOf(context).width * .7, 300),
-                      child: FilledButton(
-                          onPressed: () {
-                            if (service.isEmpty) {
-                              return;
-                            } else {
-                              CADASTRO_CONTROLLER
-                                  .setServico(ServicoEnum.fromValue(service));
-                            }
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    const SendCadastroPage()));
-                          },
-                          child: const Text('Continuar')),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 70,
+                        margin: const EdgeInsets.only(
+                            bottom: AppDimens.marginXLarge,
+                            top: AppDimens.margin2XLarge),
+                        width: min(MediaQuery.sizeOf(context).width * .7, 300),
+                        child: FilledButton(
+                            onPressed: () {
+                              if (service.isEmpty) {
+                                return;
+                              } else {
+                                CADASTRO_CONTROLLER
+                                    .setServico(ServicoEnum.fromValue(service));
+                              }
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SendCadastroPage()));
+                            },
+                            child: const Text('Continuar')),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

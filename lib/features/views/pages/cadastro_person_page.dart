@@ -24,23 +24,23 @@ class _CadastroPersonPageState extends State<CadastroPersonPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppbarComponent(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: AppDimens.marginSmall),
-            child: TitleComponent(title: 'Cadastro'),
-          ),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: AppDimens.marginSmall),
+              child: TitleComponent(title: 'Cadastro'),
+            ),
+            Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: AppDimens.marginXLarge),
               child: PersonFormComponent(
                 controller: CADASTRO_CONTROLLER,
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

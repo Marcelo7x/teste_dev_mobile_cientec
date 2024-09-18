@@ -46,6 +46,15 @@ class CadastroController {
       if (motivo.isEmpty) {
         state.value = ErrorState('Motivo não informado');
         return;
+      } else if (destinatario == null) {
+        state.value = ErrorState('Deve ser informado a quem encaminhar');
+        return;
+      } else if (servico == null) {
+        state.value = ErrorState('Serviço não informado');
+        return;
+      } else if (person == null) {
+        state.value = ErrorState('Pessoa não informada');
+        return;
       }
 
       print('Encaminhando: $_person, $_servico, $motivo, $_destinatario');

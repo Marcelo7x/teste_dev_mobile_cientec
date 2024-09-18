@@ -61,143 +61,148 @@ class _SendCadastroPageState extends State<SendCadastroPage> {
                     child: TitleComponent(title: 'Cadastro'),
                   ),
                   Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: AppDimens.marginXLarge,
-                                  vertical: AppDimens.marginXLarge),
-                              child: PersonInfoComponent(
-                                  person: CADASTRO_CONTROLLER.person!),
-                            ),
-                            const SizedBox(
-                              height: AppDimens.marginLarge,
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                showModalBottomSheet(
-                                  context: context,
-                                  backgroundColor: Theme.of(context)
-                                      .colorScheme
-                                      .surfaceBright,
-                                  showDragHandle: true,
-                                  builder: (BuildContext context) {
-                                    return SelectDestinatarioComponent(
-                                      controller: CADASTRO_CONTROLLER,
-                                    );
-                                  },
-                                );
-                              },
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                backgroundColor:
-                                    Theme.of(context).colorScheme.surfaceBright,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(0),
-                                ),
-                              ),
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: AppDimens.marginXLarge),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Encaminhar para'),
-                                    Icon(Icons.arrow_forward_ios_rounded),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: AppDimens.marginLarge,
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                showModalBottomSheet(
-                                  context: context,
-                                  isScrollControlled: true,
-                                  backgroundColor: Theme.of(context)
-                                      .colorScheme
-                                      .surfaceBright,
-                                  builder: (BuildContext context) {
-                                    return SizedBox(
-                                        height: height * .9,
-                                        child: MotivoModalComponent(
-                                          controller: CADASTRO_CONTROLLER,
-                                        ));
-                                  },
-                                );
-                              },
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                backgroundColor:
-                                    Theme.of(context).colorScheme.surfaceBright,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(0),
-                                ),
-                              ),
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: AppDimens.marginXLarge),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Motivo'),
-                                    Icon(Icons.arrow_forward_ios_rounded),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: AppDimens.marginXLarge,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
-                                height: 70,
-                                width: width * .4,
-                                child: OutlinedButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text(
-                                    'Cancelar',
-                                    style: TextStyle(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .primary),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: AppDimens.marginXLarge,
+                                    vertical: AppDimens.marginXLarge),
+                                child: PersonInfoComponent(
+                                    person: CADASTRO_CONTROLLER.person!),
+                              ),
+                              const SizedBox(
+                                height: AppDimens.marginLarge,
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    backgroundColor: Theme.of(context)
+                                        .colorScheme
+                                        .surfaceBright,
+                                    showDragHandle: true,
+                                    builder: (BuildContext context) {
+                                      return SelectDestinatarioComponent(
+                                        controller: CADASTRO_CONTROLLER,
+                                      );
+                                    },
+                                  );
+                                },
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .surfaceBright,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(0),
+                                  ),
+                                ),
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: AppDimens.marginXLarge),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('Encaminhar para'),
+                                      Icon(Icons.arrow_forward_ios_rounded),
+                                    ],
                                   ),
                                 ),
                               ),
                               const SizedBox(
-                                width: AppDimens.marginLarge,
+                                height: AppDimens.marginLarge,
                               ),
-                              SizedBox(
-                                height: 70,
-                                width: width * .4,
-                                child: FilledButton(
-                                  onPressed: () {
-                                    confimationDialog(context);
-                                  },
-                                  child: const Text('Salvar'),
+                              TextButton(
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    isScrollControlled: true,
+                                    backgroundColor: Theme.of(context)
+                                        .colorScheme
+                                        .surfaceBright,
+                                    builder: (BuildContext context) {
+                                      return SizedBox(
+                                          height: height * .9,
+                                          child: MotivoModalComponent(
+                                            controller: CADASTRO_CONTROLLER,
+                                          ));
+                                    },
+                                  );
+                                },
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .surfaceBright,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(0),
+                                  ),
+                                ),
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: AppDimens.marginXLarge),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('Motivo'),
+                                      Icon(Icons.arrow_forward_ios_rounded),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: AppDimens.margin2XLarge,
+                              bottom: AppDimens.marginXLarge,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 70,
+                                  width: width * .4,
+                                  child: OutlinedButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      'Cancelar',
+                                      style: TextStyle(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: AppDimens.marginLarge,
+                                ),
+                                SizedBox(
+                                  height: 70,
+                                  width: width * .4,
+                                  child: FilledButton(
+                                    onPressed: () {
+                                      confimationDialog(context);
+                                    },
+                                    child: const Text('Salvar'),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
