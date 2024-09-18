@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:teste_dev_mobile_cientec/features/models/servico_enum.dart';
+import 'package:teste_dev_mobile_cientec/features/models/service_enum.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/custom_appbar_component.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/title_component.dart';
-import 'package:teste_dev_mobile_cientec/features/views/pages/send_cadastro_page.dart';
+import 'package:teste_dev_mobile_cientec/features/views/pages/send_registration_page.dart';
 import 'package:teste_dev_mobile_cientec/main.dart';
 import 'package:teste_dev_mobile_cientec/res/app_dimens.dart';
 
@@ -51,7 +51,7 @@ class _ServiceSelectPageState extends State<ServiceSelectPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: AppDimens.marginXLarge),
                         child: Column(
-                          children: ServicoEnum.values
+                          children: ServiceEnum.values
                               .map((e) => RadioListTile(
                                     contentPadding: EdgeInsets.zero,
                                     title: Text(e.value,
@@ -87,12 +87,12 @@ class _ServiceSelectPageState extends State<ServiceSelectPage> {
                               if (service.isEmpty) {
                                 return;
                               } else {
-                                CADASTRO_CONTROLLER
-                                    .setServico(ServicoEnum.fromValue(service));
+                                REGISTRATION_CONTROLLER
+                                    .setServico(ServiceEnum.fromValue(service));
                               }
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) =>
-                                      const SendCadastroPage()));
+                                      const SendRegistrationPage()));
                             },
                             child: const Text('Continuar')),
                       ),

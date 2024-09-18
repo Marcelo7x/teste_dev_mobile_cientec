@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:teste_dev_mobile_cientec/features/controllers/cadastro_controller.dart';
+import 'package:teste_dev_mobile_cientec/features/controllers/registration_controller.dart';
 import 'package:teste_dev_mobile_cientec/features/core/input_formatter.dart';
 import 'package:teste_dev_mobile_cientec/features/core/validator.dart';
 import 'package:teste_dev_mobile_cientec/features/views/pages/service_select_page.dart';
@@ -12,7 +12,7 @@ class PersonFormComponent extends StatelessWidget {
   PersonFormComponent({super.key, required this.controller});
 
   final _personFormKey = GlobalKey<FormState>();
-  final CadastroController controller;
+  final RegistrationController controller;
   String name = '';
   String cpf = '';
   String date = '';

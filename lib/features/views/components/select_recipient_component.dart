@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:teste_dev_mobile_cientec/features/controllers/cadastro_controller.dart';
-import 'package:teste_dev_mobile_cientec/features/models/destinatario_enum.dart';
+import 'package:teste_dev_mobile_cientec/features/controllers/registration_controller.dart';
+import 'package:teste_dev_mobile_cientec/features/models/recipient_enum.dart';
 import 'package:teste_dev_mobile_cientec/res/app_dimens.dart';
 
-class SelectDestinatarioComponent extends StatefulWidget {
-  SelectDestinatarioComponent({super.key, required this.controller});
+class SelectRecipientComponent extends StatefulWidget {
+  SelectRecipientComponent({super.key, required this.controller});
 
-  CadastroController controller;
+  RegistrationController controller;
 
   @override
-  State<SelectDestinatarioComponent> createState() =>
-      _SelectDestinatarioComponentState();
+  State<SelectRecipientComponent> createState() =>
+      _SelectRecipientComponentState();
 }
 
-class _SelectDestinatarioComponentState
-    extends State<SelectDestinatarioComponent> {
-  late DestinatarioEnum destinatarioSelected;
+class _SelectRecipientComponentState extends State<SelectRecipientComponent> {
+  late RecipientEnum destinatarioSelected;
 
   @override
   void initState() {
     super.initState();
     destinatarioSelected =
-        widget.controller.destinatario ?? DestinatarioEnum.defensoriaPublica;
+        widget.controller.destinatario ?? RecipientEnum.defensoriaPublica;
   }
 
   @override
@@ -34,7 +33,7 @@ class _SelectDestinatarioComponentState
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: DestinatarioEnum.values
+            children: RecipientEnum.values
                 .map(
                   (el) => Container(
                     width: width,

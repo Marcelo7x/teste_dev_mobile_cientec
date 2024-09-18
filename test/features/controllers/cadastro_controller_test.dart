@@ -1,16 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:teste_dev_mobile_cientec/features/controllers/cadastro_controller.dart';
+import 'package:teste_dev_mobile_cientec/features/controllers/registration_controller.dart';
 import 'package:teste_dev_mobile_cientec/features/core/app_state.dart';
-import 'package:teste_dev_mobile_cientec/features/models/destinatario_enum.dart';
+import 'package:teste_dev_mobile_cientec/features/models/recipient_enum.dart';
 import 'package:teste_dev_mobile_cientec/features/models/person_interface.dart';
-import 'package:teste_dev_mobile_cientec/features/models/servico_enum.dart';
+import 'package:teste_dev_mobile_cientec/features/models/service_enum.dart';
 
 void main() {
   group('CadastroController', () {
-    late CadastroController controller;
+    late RegistrationController controller;
 
     setUp(() {
-      controller = CadastroController();
+      controller = RegistrationController();
     });
 
     test('estado inicial é ReadyState', () {
@@ -33,9 +33,9 @@ void main() {
     });
 
     test('setServico deve definir o serviço', () {
-      controller.setServico(ServicoEnum.encaminhamento);
+      controller.setServico(ServiceEnum.encaminhamento);
 
-      expect(controller.servico, ServicoEnum.encaminhamento);
+      expect(controller.servico, ServiceEnum.encaminhamento);
     });
 
     test('setMotivo deve definir o motivo', () {
@@ -45,9 +45,9 @@ void main() {
     });
 
     test('setDestinatario deve definir o destinatário', () {
-      controller.setDestinatario(DestinatarioEnum.defensoriaPublica);
+      controller.setDestinatario(RecipientEnum.defensoriaPublica);
 
-      expect(controller.destinatario, DestinatarioEnum.defensoriaPublica);
+      expect(controller.destinatario, RecipientEnum.defensoriaPublica);
     });
 
     test(
@@ -59,9 +59,9 @@ void main() {
         date: '01/01/2000',
         phone: '123456789',
       );
-      controller.setServico(ServicoEnum.encaminhamento);
+      controller.setServico(ServiceEnum.encaminhamento);
       controller.setMotivo('Test Reason');
-      controller.setDestinatario(DestinatarioEnum.ministerioPublico);
+      controller.setDestinatario(RecipientEnum.ministerioPublico);
 
       await controller.encaminhar();
 

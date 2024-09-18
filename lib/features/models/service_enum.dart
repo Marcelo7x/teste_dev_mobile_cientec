@@ -1,4 +1,4 @@
-enum ServicoEnum {
+enum ServiceEnum {
   encaminhamento('Encaminhamento'),
   acompanhamento('Acompanhamento'),
   abordagemSocial('Abordagem Social'),
@@ -6,19 +6,19 @@ enum ServicoEnum {
   scfv('SCFV');
 
   final String value;
-  const ServicoEnum(this.value);
-  factory ServicoEnum.fromValue(String value) {
+  const ServiceEnum(this.value);
+  factory ServiceEnum.fromValue(String value) {
     switch (value) {
       case 'Encaminhamento':
-        return ServicoEnum.encaminhamento;
+        return ServiceEnum.encaminhamento;
       case 'Acompanhamento':
-        return ServicoEnum.acompanhamento;
+        return ServiceEnum.acompanhamento;
       case 'Abordagem Social':
-        return ServicoEnum.abordagemSocial;
+        return ServiceEnum.abordagemSocial;
       case 'Acolhimento':
-        return ServicoEnum.acolhimento;
+        return ServiceEnum.acolhimento;
       case 'SCFV':
-        return ServicoEnum.scfv;
+        return ServiceEnum.scfv;
       default:
         throw Exception('Serviço não encontrado');
     }

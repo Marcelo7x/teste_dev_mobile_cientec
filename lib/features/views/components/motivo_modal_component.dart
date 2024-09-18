@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:teste_dev_mobile_cientec/features/controllers/cadastro_controller.dart';
+import 'package:teste_dev_mobile_cientec/features/controllers/registration_controller.dart';
 import 'package:teste_dev_mobile_cientec/res/app_dimens.dart';
 
 class MotivoModalComponent extends StatefulWidget {
   const MotivoModalComponent({super.key, required this.controller});
 
-  final CadastroController controller;
+  final RegistrationController controller;
 
   @override
   State<MotivoModalComponent> createState() => _MotivoModalComponentState();

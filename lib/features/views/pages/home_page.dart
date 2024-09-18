@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste_dev_mobile_cientec/features/controllers/home_controller.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/custom_appbar_component.dart';
-import 'package:teste_dev_mobile_cientec/features/views/pages/cadastro_person_page.dart';
+import 'package:teste_dev_mobile_cientec/features/views/pages/register_person_page.dart';
 import 'package:teste_dev_mobile_cientec/res/app_dimens.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     // const ProfilePage(),
     // const HomePage(),
     // const MenuPage(),
-    const CadastroPersonPage(),
+    const RegisterPersonPage(),
   ];
 
   @override

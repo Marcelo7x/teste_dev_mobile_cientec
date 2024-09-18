@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:teste_dev_mobile_cientec/features/controllers/cadastro_controller.dart';
+import 'package:teste_dev_mobile_cientec/features/controllers/registration_controller.dart';
 import 'package:teste_dev_mobile_cientec/features/views/pages/home_page.dart';
 import 'package:teste_dev_mobile_cientec/res/themedata_light.dart';
 
-CadastroController CADASTRO_CONTROLLER = CadastroController();
+RegistrationController REGISTRATION_CONTROLLER = RegistrationController();
 
 void main() {
   runApp(const MyApp());

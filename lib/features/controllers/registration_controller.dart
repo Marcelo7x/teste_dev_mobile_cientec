@@ -1,23 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:teste_dev_mobile_cientec/features/core/app_state.dart';
-import 'package:teste_dev_mobile_cientec/features/models/destinatario_enum.dart';
+import 'package:teste_dev_mobile_cientec/features/models/recipient_enum.dart';
 import 'package:teste_dev_mobile_cientec/features/models/person_impl.dart';
 import 'package:teste_dev_mobile_cientec/features/models/person_interface.dart';
-import 'package:teste_dev_mobile_cientec/features/models/servico_enum.dart';
+import 'package:teste_dev_mobile_cientec/features/models/service_enum.dart';
 import 'package:teste_dev_mobile_cientec/features/repository/cadastro_repository.dart';
 
-class CadastroController {
+class RegistrationController {
   final state = ValueNotifier<AppState>(ReadyState());
   final _repository = CadastroRepository();
   PersonInterface? _person;
   PersonInterface? get person => _person;
-  ServicoEnum? _servico;
-  ServicoEnum? get servico => _servico;
+  ServiceEnum? _servico;
+  ServiceEnum? get servico => _servico;
   String motivo = '';
-  DestinatarioEnum? _destinatario;
-  DestinatarioEnum? get destinatario => _destinatario;
+  RecipientEnum? _destinatario;
+  RecipientEnum? get destinatario => _destinatario;
 
-  CadastroController();
+  RegistrationController();
 
   void createPerson(
       {required String name,
@@ -27,7 +27,7 @@ class CadastroController {
     _person = PersonImpl(name: name, cpf: cpf, date: date, phone: phone);
   }
 
-  void setServico(ServicoEnum servico) {
+  void setServico(ServiceEnum servico) {
     _servico = servico;
   }
 
@@ -35,7 +35,7 @@ class CadastroController {
     this.motivo = motivo;
   }
 
-  void setDestinatario(DestinatarioEnum destinatario) {
+  void setDestinatario(RecipientEnum destinatario) {
     _destinatario = destinatario;
   }
 

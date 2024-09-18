@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:teste_dev_mobile_cientec/features/core/app_state.dart';
-import 'package:teste_dev_mobile_cientec/features/models/destinatario_enum.dart';
+import 'package:teste_dev_mobile_cientec/features/models/recipient_enum.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/custom_appbar_component.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/motivo_modal_component.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/person_info_component.dart';
-import 'package:teste_dev_mobile_cientec/features/views/components/select_destinatario_component.dart';
-import 'package:teste_dev_mobile_cientec/features/views/components/send_cadastro_dialogs.dart';
+import 'package:teste_dev_mobile_cientec/features/views/components/select_recipient_component.dart';
+import 'package:teste_dev_mobile_cientec/features/views/components/send_registration_dialogs.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/title_component.dart';
 import 'package:teste_dev_mobile_cientec/main.dart';
 import 'package:teste_dev_mobile_cientec/res/app_dimens.dart';
 
-class SendCadastroPage extends StatefulWidget {
-  const SendCadastroPage({super.key});
+class SendRegistrationPage extends StatefulWidget {
+  const SendRegistrationPage({super.key});
 
   @override
-  State<SendCadastroPage> createState() => _SendCadastroPageState();
+  State<SendRegistrationPage> createState() => _SendRegistrationPageState();
 }
 
-class _SendCadastroPageState extends State<SendCadastroPage> {
-  DestinatarioEnum? destinatarioSelected;
+class _SendRegistrationPageState extends State<SendRegistrationPage> {
+  RecipientEnum? destinatarioSelected;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    CADASTRO_CONTROLLER.state.addListener(() {
-      if (CADASTRO_CONTROLLER.state.value is SucessState) {
+    REGISTRATION_CONTROLLER.state.addListener(() {
+      if (REGISTRATION_CONTROLLER.state.value is SucessState) {
         sucessDialog(_scaffoldKey.currentState!.context);
       }
-      if (CADASTRO_CONTROLLER.state.value is ErrorState) {
+      if (REGISTRATION_CONTROLLER.state.value is ErrorState) {
         errorDialog(_scaffoldKey.currentState!.context);
       }
     });
@@ -43,7 +43,7 @@ class _SendCadastroPageState extends State<SendCadastroPage> {
       key: _scaffoldKey,
       appBar: customAppbarComponent(),
       body: ValueListenableBuilder(
-        valueListenable: CADASTRO_CONTROLLER.state,
+        valueListenable: REGISTRATION_CONTROLLER.state,
         builder: (context, state, child) {
           return switch (state) {
             (LoadingState _) => const Center(
@@ -77,7 +77,7 @@ class _SendCadastroPageState extends State<SendCadastroPage> {
                                     horizontal: AppDimens.marginXLarge,
                                     vertical: AppDimens.marginXLarge),
                                 child: PersonInfoComponent(
-                                    person: CADASTRO_CONTROLLER.person!),
+                                    person: REGISTRATION_CONTROLLER.person!),
                               ),
                               const SizedBox(
                                 height: AppDimens.marginLarge,
@@ -91,8 +91,8 @@ class _SendCadastroPageState extends State<SendCadastroPage> {
                                         .surfaceBright,
                                     showDragHandle: true,
                                     builder: (BuildContext context) {
-                                      return SelectDestinatarioComponent(
-                                        controller: CADASTRO_CONTROLLER,
+                                      return SelectRecipientComponent(
+                                        controller: REGISTRATION_CONTROLLER,
                                       );
                                     },
                                   );
@@ -134,7 +134,7 @@ class _SendCadastroPageState extends State<SendCadastroPage> {
                                       return SizedBox(
                                           height: height * .9,
                                           child: MotivoModalComponent(
-                                            controller: CADASTRO_CONTROLLER,
+                                            controller: REGISTRATION_CONTROLLER,
                                           ));
                                     },
                                   );

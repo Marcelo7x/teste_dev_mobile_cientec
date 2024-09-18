@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:teste_dev_mobile_cientec/features/controllers/cadastro_controller.dart';
+import 'package:teste_dev_mobile_cientec/features/controllers/registration_controller.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/custom_appbar_component.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/person_form_component.dart';
 import 'package:teste_dev_mobile_cientec/features/views/components/title_component.dart';
 import 'package:teste_dev_mobile_cientec/main.dart';
 import 'package:teste_dev_mobile_cientec/res/app_dimens.dart';
 
-class CadastroPersonPage extends StatefulWidget {
-  const CadastroPersonPage({super.key});
+class RegisterPersonPage extends StatefulWidget {
+  const RegisterPersonPage({super.key});
 
   @override
-  State<CadastroPersonPage> createState() => _CadastroPersonPageState();
+  State<RegisterPersonPage> createState() => _RegisterPersonPageState();
 }
 
-class _CadastroPersonPageState extends State<CadastroPersonPage> {
+class _RegisterPersonPageState extends State<RegisterPersonPage> {
   @override
   void initState() {
     super.initState();
-    CADASTRO_CONTROLLER = CadastroController();
+    REGISTRATION_CONTROLLER = RegistrationController();
   }
 
   @override
@@ -36,7 +36,7 @@ class _CadastroPersonPageState extends State<CadastroPersonPage> {
               padding: const EdgeInsets.symmetric(
                   horizontal: AppDimens.marginXLarge),
               child: PersonFormComponent(
-                controller: CADASTRO_CONTROLLER,
+                controller: REGISTRATION_CONTROLLER,
               ),
             ),
           ],
