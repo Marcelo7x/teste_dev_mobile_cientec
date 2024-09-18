@@ -15,7 +15,15 @@ class SelectDestinatarioComponent extends StatefulWidget {
 
 class _SelectDestinatarioComponentState
     extends State<SelectDestinatarioComponent> {
-      DestinatarioEnum destinatarioSelected = DestinatarioEnum.defensoriaPublica;
+  late DestinatarioEnum destinatarioSelected;
+
+  @override
+  void initState() {
+    super.initState();
+    destinatarioSelected =
+        widget.controller.destinatario ?? DestinatarioEnum.defensoriaPublica;
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;

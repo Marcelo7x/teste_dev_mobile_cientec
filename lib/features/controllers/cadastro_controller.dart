@@ -42,6 +42,14 @@ class CadastroController {
   Future<void> encaminhar() async {
     if (_person != null && _servico != null) {
       state.value = LoadingState();
+
+      if (motivo.isEmpty) {
+        state.value = ErrorState('Motivo não informado');
+        return;
+      }
+
+      print('Encaminhando: $_person, $_servico, $motivo, $_destinatario');
+
       final (sucess, error) = await _repository.encaminhar(
           _person!, _servico!, motivo, _destinatario);
 

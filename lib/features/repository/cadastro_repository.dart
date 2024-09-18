@@ -8,7 +8,7 @@ class CadastroRepository {
       ServicoEnum servico,
       String motivo,
       DestinatarioEnum? destinatario) async {
-        Future.delayed(const Duration(seconds: 2));
-        return (true, null);
-      }
+    await Future.delayed(const Duration(seconds: 2));
+    return (true, null);
+  }
 }

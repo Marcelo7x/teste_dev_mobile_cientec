@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:teste_dev_mobile_cientec/features/models/person_interface.dart';
 
 class PersonImpl implements PersonInterface {
@@ -27,4 +28,9 @@ class PersonImpl implements PersonInterface {
 
   @override
   String get phone => _phone;
+
+  @override
+  String toString() {
+    return 'PersonImpl(_name: $_name, _cpf: $_cpf, _date: $_date, _phone: $_phone)';
+  }
 }

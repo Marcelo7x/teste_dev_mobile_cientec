@@ -12,7 +12,14 @@ class MotivoModalComponent extends StatefulWidget {
 }
 
 class _MotivoModalComponentState extends State<MotivoModalComponent> {
-  String motivo = '';
+  final motivo = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    motivo.text = widget.controller.motivo;
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
@@ -38,7 +45,7 @@ class _MotivoModalComponentState extends State<MotivoModalComponent> {
                 ),
                 TextButton(
                   onPressed: () {
-                    widget.controller.setMotivo(motivo);
+                    widget.controller.setMotivo(motivo.text);
                     Navigator.pop(context);
                   },
                   child: Text(
@@ -68,9 +75,7 @@ class _MotivoModalComponentState extends State<MotivoModalComponent> {
                 ),
                 SingleChildScrollView(
                   child: TextField(
-                    onChanged: (value) {
-                      motivo = value;
-                    },
+                    controller: motivo,
                     maxLines: height ~/
                         (Theme.of(context).textTheme.bodyLarge!.fontSize! * 2),
                     minLines: 10,
