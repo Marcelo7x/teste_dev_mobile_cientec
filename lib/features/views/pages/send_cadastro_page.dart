@@ -19,16 +19,17 @@ class SendCadastroPage extends StatefulWidget {
 
 class _SendCadastroPageState extends State<SendCadastroPage> {
   DestinatarioEnum? destinatarioSelected;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
     CADASTRO_CONTROLLER.state.addListener(() {
       if (CADASTRO_CONTROLLER.state.value is SucessState) {
-        sucessDialog(context);
+        sucessDialog(_scaffoldKey.currentState!.context);
       }
       if (CADASTRO_CONTROLLER.state.value is ErrorState) {
-        errorDialog(context);
+        errorDialog(_scaffoldKey.currentState!.context);
       }
     });
   }
@@ -39,6 +40,7 @@ class _SendCadastroPageState extends State<SendCadastroPage> {
     final height = MediaQuery.sizeOf(context).height;
 
     return Scaffold(
+      key: _scaffoldKey,
       appBar: customAppbarComponent(),
       body: ValueListenableBuilder(
         valueListenable: CADASTRO_CONTROLLER.state,
