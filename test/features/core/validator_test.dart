@@ -43,6 +43,13 @@ void main() {
       expect(resultValid, null);
     });
 
+    test('should empty date field as valid when is optional', () {
+      final validator = Validator(optional: true).date();
+      const emptyDate = '';
+      final resultValid = validator.validate()(emptyDate);
+      expect(resultValid, null);
+    });
+
     test('should validate phone field as required and invalid', () {
       final validator = Validator().phone();
       final result = validator.validate()('');
