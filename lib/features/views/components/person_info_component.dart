@@ -17,12 +17,14 @@ class _PersonInfoComponentState extends State<PersonInfoComponent> {
   @override
   void initState() {
     super.initState();
-    age = (DateTime.now()
-                .difference(DateTime.parse(
-                    widget.person.date.split('/').reversed.join('-')))
-                .inDays /
-            365)
-        .truncate();
+    if (widget.person.date.isNotEmpty) {
+      age = (DateTime.now()
+                  .difference(DateTime.parse(
+                      widget.person.date.split('/').reversed.join('-')))
+                  .inDays /
+              365)
+          .truncate();
+    }
   }
 
   @override
@@ -45,48 +47,52 @@ class _PersonInfoComponentState extends State<PersonInfoComponent> {
             ],
           ),
         ),
-        Wrap(
-          spacing: AppDimens.marginMedium,
-          alignment: WrapAlignment.spaceBetween,
-          children: [
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                      text: 'Data de nascimento: ',
-                      style: Theme.of(context).textTheme.bodyMedium),
-                  TextSpan(
-                    text: widget.person.date,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                  ),
-                ],
+        if (widget.person.date.isNotEmpty)
+          Wrap(
+            spacing: AppDimens.marginMedium,
+            alignment: WrapAlignment.spaceBetween,
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                        text: 'Data de nascimento: ',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    TextSpan(
+                      text: widget.person.date,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                      text: 'Idade: ',
-                      style: Theme.of(context).textTheme.bodyMedium),
-                  TextSpan(
-                    text: age.toString(),
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                  ),
-                  TextSpan(
-                    text: ' anos',
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                  ),
-                ],
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                        text: 'Idade: ',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    TextSpan(
+                      text: age.toString(),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                    ),
+                    TextSpan(
+                      text: ' anos',
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        )
+            ],
+          )
       ],
     );
   }
