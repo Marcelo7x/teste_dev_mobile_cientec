@@ -18,8 +18,10 @@ class Validator {
 
   Validator name([String? message]) {
     validations.add((String? value) {
-      if (value?.isEmpty ?? true && !optional) {
+      if ((value == null || value.isEmpty) && !optional) {
         return message ?? 'Campo obrigatório';
+      } else if ((value == null || value.isEmpty) && optional) {
+        return null;
       }
       return null;
     });
@@ -28,8 +30,10 @@ class Validator {
 
   Validator cpf([String? message]) {
     validations.add((String? value) {
-      if (value?.isEmpty ?? true && !optional) {
+      if ((value == null || value.isEmpty) && !optional) {
         return message ?? 'Campo obrigatório';
+      } else if ((value == null || value.isEmpty) && optional) {
+        return null;
       }
 
       if (!isValidCPF(value)) {
@@ -74,8 +78,10 @@ class Validator {
 
   Validator date([String? message]) {
     validations.add((String? value) {
-      if (value?.isEmpty ?? true && !optional) {
+      if ((value == null || value.isEmpty) && !optional) {
         return message ?? 'Campo obrigatório';
+      } else if ((value == null || value.isEmpty) && optional) {
+        return null;
       }
 
       value = value?.split('/').reversed.join('-');
@@ -92,8 +98,10 @@ class Validator {
 
   Validator phone([String? message]) {
     validations.add((String? value) {
-      if (value?.isEmpty ?? true && !optional) {
+      if ((value == null || value.isEmpty) && !optional) {
         return message ?? 'Campo obrigatório';
+      } else if ((value == null || value.isEmpty) && optional) {
+        return null;
       }
 
       if (!RegExp(r'^\(\d{2}\) \d{5}-\d{4}$').hasMatch(value ?? '')) {
@@ -107,8 +115,10 @@ class Validator {
 
   Validator maxLength(int length, [String? message]) {
     validations.add((String? value) {
-      if (value?.isEmpty ?? true && !optional) {
+      if ((value == null || value.isEmpty) && !optional) {
         return message ?? 'Campo obrigatório';
+      } else if ((value == null || value.isEmpty) && optional) {
+        return null;
       }
 
       if (value != null && value.length > length) {
